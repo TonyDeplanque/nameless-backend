@@ -22,8 +22,16 @@ export class UsersService {
     return await this.userRepository.create(newUser);
   }
 
-  protected async hashPassword(password: string): Promise<string> {
+  async findOne(email: string): Promise<User> {
+    return await this.userRepository.findOne(email);
+  }
+
+  public async hashPassword(password: string): Promise<string> {
     const salt = await bcrypt.genSalt(10);
     return await bcrypt.hash(password, salt);
+  }
+
+  public async comparePassword(password1, password2) {
+    return await bcrypt.compare(password1, password2);
   }
 }

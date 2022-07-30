@@ -1,7 +1,7 @@
 import { Module } from '@nestjs/common';
 import { UsersService } from './users.service';
 import { UsersController } from './users.controller';
-import { UsersMongoModule } from './dependencies/users.mongo.module';
+import { UsersMongoModule } from './dependencies/mongo/users.mongo.module';
 
 @Module({
   imports: [UsersMongoModule],
