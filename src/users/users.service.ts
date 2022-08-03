@@ -31,7 +31,7 @@ export class UsersService {
     return await bcrypt.hash(password, salt);
   }
 
-  public async comparePassword(password1, password2) {
+  public async comparePasswords(password1, password2) {
     return await bcrypt.compare(password1, password2);
   }
 }

@@ -55,7 +55,7 @@ describe('userController', () => {
       const serviceResult = await userService.create(createUserDto);
 
       expect(
-        await userService.comparePassword(
+        await userService.comparePasswords(
           createUserDto.password,
           serviceResult.password,
         ),
