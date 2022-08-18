@@ -1,7 +1,7 @@
 import { Test, TestingModule } from '@nestjs/testing';
 import { MongoMemoryServer } from 'mongodb-memory-server';
 import { connect, Connection } from 'mongoose';
-import { User, UserSchema } from './user.schema';
+import { UserSchema } from './user.schema';
 import { UsersController } from '../../users.controller';
 import { IUserRepositoryName } from '../../users.constant';
 import { UsersMongoRepository } from './users.mongo.repository';

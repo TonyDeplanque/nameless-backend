@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
 import { UsersService } from '../users/users.service';
 import { User } from '../users/users.model';
 import { JwtService } from '@nestjs/jwt';
@@ -12,6 +12,10 @@ export class AuthService {
 
   async validateUser(username: string, password: string): Promise<User> {
     const user = await this.userService.findOne(username);
+
+    if (!user) {
+      throw new HttpException('Forbidden', HttpStatus.FORBIDDEN);
+    }
 
     const validPassword = await this.userService.comparePasswords(
       password,
